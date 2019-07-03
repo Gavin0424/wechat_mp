@@ -1,0 +1,63 @@
+<view class='page'>
+  <view class="page__bd">
+    <view class="userinfo">
+      <button wx:if="{{!hasUserInfo && canIUse}}" type='default' open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+      <block wx:else>
+        <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      </block>
+    </view>
+    <!-- <view class="divLine"></view> -->
+    <view class="weui-cells weui-cells_after-title">
+      <!-- <view class="weui-cell weui-cell_select" bindtap='userinfo'>
+      <view class="weui-cell__hd weui-cell__hd_in-select-after">
+        <view class="weui-label">{{userActor}}</view>
+      </view>
+      <view class="weui-cell__bd">
+        <view class="weui-select weui-select_in-select-after"></view>
+      </view>
+    </view> -->
+      <!-- <view class="weui-cell weui-cell_select" bindtap='myOrder' wx:if='{{isCustomer}}'>
+      <view class="weui-cell__hd weui-cell__hd_in-select-after">
+        <view class="weui-label">我的订单</view>
+      </view>
+      <view class="weui-cell__bd">
+        <view class="weui-select weui-select_in-select-after"></view>
+      </view>
+    </view> -->
+      <view class="weui-cell weui-cell_access" bindtap='userinfo'>
+        <view class="weui-cell__bd">
+          <view style="display: inline-block; vertical-align: middle">{{userActor}}</view>
+        </view>
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      </view>
+      <view class="weui-cell weui-cell_access" bindtap='myOrder' wx:if='{{isCustomer}}'>
+        <view class="weui-cell__bd">
+          <view style="display: inline-block; vertical-align: middle">我的订单</view>
+          <!-- <view class="weui-badge" style="margin-left: 5px;">8</view> -->
+        </view>
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      </view>
+      <view class="weui-cell weui-cell_access" bindtap='checkSettled' wx:if='{{isAdmin}}'>
+        <view class="weui-cell__bd">
+          <view style="display: inline-block; vertical-align: middle">入驻审核</view>
+          <!-- <view class="weui-badge" style="margin-left: 5px;">8</view> -->
+        </view>
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      </view>
+      <view class="weui-cell weui-cell_access" bindtap='checkOrder' wx:if='{{isAdmin}}'>
+        <view class="weui-cell__bd">
+          <view style="display: inline-block; vertical-align: middle">订单审核</view>
+          <!-- <view class="weui-badge" style="margin-left: 5px;">8</view> -->
+        </view>
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      </view>
+      <view class="weui-cell weui-cell_access" bindtap='call'>
+        <view class="weui-cell__bd">
+          <view style="display: inline-block; vertical-align: middle">联系我们</view>
+        </view>
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      </view>
+    </view>
+  </view>
+</view>

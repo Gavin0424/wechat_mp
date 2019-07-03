@@ -1,0 +1,6 @@
+<!--pages/component/Dictionary.wxml-->
+<picker bindchange="bindPickerChange" value="{{index}}" range="{{Array}}">
+  <view class="picker">
+    {{Array[index]}}
+  </view>
+</picker>

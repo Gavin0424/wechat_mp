@@ -1,0 +1,80 @@
+<!--pages/customer/customerInfo.wxml-->
+<view class='page'>
+  <view class="page__hd">
+    <view class="page__title">商户详情</view>
+    <view class="page__desc"></view>
+  </view>
+  <view class="page__bd">
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">名称</view>
+        <view class="weui-cell__ft">{{customerName}}</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">地址</view>
+        <view class="weui-cell__ft">{{customerAddress}}</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">联系人</view>
+        <view class="weui-cell__ft">{{customerContact}}</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">手机号码</view>
+        <view class="weui-cell__ft">{{customerPhone}}</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">申请时间</view>
+        <view class="weui-cell__ft">{{createDate}}</view>
+      </view>
+      <view class="weui-cell" wx:if="{{isCheck==1}}">
+        <view class="weui-cell__bd">审核时间</view>
+        <view class="weui-cell__ft">{{checkDate}}</view>
+      </view>
+    </view>
+    <view class="weui-cells">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <view class="weui-uploader">
+            <view class="weui-uploader__hd">
+              <view class="weui-uploader__title">身份证正反面</view>
+              <view class="weui-uploader__info">{{idPics.length}}/2</view>
+            </view>
+            <view class="weui-uploader__bd">
+              <view class="weui-uploader__files" id="uploaderFiles">
+                <block wx:for="{{idPics}}" wx:key="*this">
+                  <view class="weui-uploader__file">
+                    <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+                  </view>
+                </block>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="weui-cells">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <view class="weui-uploader">
+            <view class="weui-uploader__hd">
+              <view class="weui-uploader__title">营业执照</view>
+              <view class="weui-uploader__info">{{licensePics.length}}/1</view>
+            </view>
+            <view class="weui-uploader__bd">
+              <view class="weui-uploader__files" id="uploaderFiles">
+                <block wx:for="{{licensePics}}" wx:key="*this">
+                  <view class="weui-uploader__file">
+                    <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+                  </view>
+                </block>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="weui-btn-area" wx:if='{{isCheck==0}}'>
+      <button class="weui-btn" type="primary" bindtap="checkSettled">审核</button>
+    </view>
+  </view>
+</view>

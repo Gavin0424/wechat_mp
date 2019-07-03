@@ -1,0 +1,16 @@
+<!--pages/customer/orders.wxml-->
+<view class="page">
+  <view class="page__hd">
+    <view class="page__title">入驻列表</view>
+    <view class="page__desc"></view>
+  </view>
+  <view class="page__bd" bindscrolltolower="lower">
+    <view class="weui-cells__title"></view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_access" hover-class="weui-cell_active" wx:for='{{customers}}' wx:key='*' bindtap='customerInfo' data-id='{{item.id}}'>
+        <view class="weui-cell__bd">{{item.name}}</view>
+        <view class="weui-cell__ft weui-cell__ft_in-access">{{item.isCheck==0 ? '未审核' : '已审核'}}</view>
+      </view>
+    </view>
+  </view>
+</view>

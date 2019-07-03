@@ -1,0 +1,61 @@
+<view class='page'>
+  <view class="page__hd">
+    <view class="page__title">商家订单详情</view>
+    <view class="page__desc"></view>
+  </view>
+  <view class="page__bd">
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell" wx:if='{{isAdmin==1}}'>
+        <view class="weui-cell__bd">商家名称</view>
+        <view class="weui-cell__ft">{{customerName}}</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">性别</view>
+        <view class="weui-cell__ft">{{sex==0?'不限':sex==1?'男':'女'}}</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">年龄</view>
+        <view class="weui-cell__ft">{{age==0?'20-25':age==1?'25-30':'30以上'}}</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">工作经验</view>
+        <view class="weui-cell__ft">{{experience==0? '无':experience==1?'1-3年':'3年以上'}}</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">专业</view>
+        <view class="weui-cell__ft">{{coachMajor}}</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">身高(CM)</view>
+        <view class="weui-cell__ft">{{height}}</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">体重(KG)</view>
+        <view class="weui-cell__ft">{{weight}}</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">地区</view>
+        <view class="weui-cell__ft">{{province}}{{city}}{{district}}</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">人数</view>
+        <view class="weui-cell__ft">{{num}}</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">到岗日期</view>
+        <view class="weui-cell__ft">{{workDate}}</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">下单时间</view>
+        <view class="weui-cell__ft">{{createDate}}</view>
+      </view>
+      <view class="weui-cell" wx:if='{{isCheck==1}}'>
+        <view class="weui-cell__bd">审核时间</view>
+        <view class="weui-cell__ft">{{checkDate}}</view>
+      </view>
+    </view>
+    <view class="weui-btn-area" wx:if='{{isCheck==0 && isAdmin==1}}'>
+      <button class="weui-btn" type="primary" bindtap="checkOrder">审核</button>
+    </view>
+  </view>
+</view>

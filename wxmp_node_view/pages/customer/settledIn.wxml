@@ -1,0 +1,107 @@
+<!--pages/customer/settledIn.wxml-->
+<view class='page'>
+  <view class="page__hd">
+    <view class="page__title">商户入驻</view>
+    <view class="page__desc"></view>
+  </view>
+  <view class="page__bd">
+    <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">{{errorTips}}</view>
+    <view class="weui-cells__title">商户名称</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__bd">
+          <input class="weui-input" placeholder="请输入商家名称" bindinput='inputCustomerName' />
+        </view>
+      </view>
+    </view>
+    <view class="weui-cells__title">商户地址</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__bd">
+          <input class="weui-input" placeholder="请输入商户地址" bindinput='inputCustomerAddress' />
+        </view>
+      </view>
+    </view>
+    <view class="weui-cells__title">联系人</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__bd">
+          <input class="weui-input" placeholder="请输入联系人" bindinput='inputCustomerContact' />
+        </view>
+      </view>
+    </view>
+    <view class="weui-cells__title">手机号码</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__bd">
+          <input class="weui-input" placeholder="请输入手机号码" bindinput='inputCustomerPhone' />
+        </view>
+      </view>
+    </view>
+    <view class="weui-cells">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <view class="weui-uploader">
+            <view class="weui-uploader__hd">
+              <view class="weui-uploader__title">身份证正反面拍照上传</view>
+              <view class="weui-uploader__info">{{idPics.length}}/2</view>
+            </view>
+            <view class="weui-uploader__bd">
+              <view class="weui-uploader__files" id="uploaderFiles">
+                <block wx:for="{{idPics}}" wx:key="*this">
+                  <view class="weui-uploader__file" bindtap="replaceIdImage" data-id="{{index}}">
+                    <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+                  </view>
+                </block>
+                <view class="weui-uploader__input-box" wx:if='{{showAddId}}'>
+                  <view class="weui-uploader__input" bindtap="chooseIdPics"></view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="weui-cells">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <view class="weui-uploader">
+            <view class="weui-uploader__hd">
+              <view class="weui-uploader__title">营业执照拍照上传</view>
+              <view class="weui-uploader__info">{{licensePics.length}}/1</view>
+            </view>
+            <view class="weui-uploader__bd">
+              <view class="weui-uploader__files" id="uploaderFiles">
+                <block wx:for="{{licensePics}}" wx:key="*this">
+                  <view class="weui-uploader__file" bindtap="replaceLicenseImage" data-id="{{index}}">
+                    <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+                  </view>
+                </block>
+                <view class="weui-uploader__input-box" wx:if='{{showAddLicense}}'>
+                  <view class="weui-uploader__input" bindtap="chooseLicensePics"></view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <checkbox-group bindchange="bindAgreeChange">
+      <label class="weui-agree" for="weuiAgree">
+        <view class="weui-agree__text">
+          <checkbox class="weui-agree__checkbox" id="weuiAgree" value="agree" checked="{{isAgree}}" />
+          <view class="weui-agree__checkbox-icon">
+            <icon class="weui-agree__checkbox-icon-check" type="success_no_circle" size="9" wx:if="{{isAgree}}"></icon>
+          </view>
+          阅读并同意
+          <navigator url="" class="weui-agree__link">《入驻协议》</navigator>
+        </view>
+      </label>
+    </checkbox-group>
+    <view class="weui-btn-area">
+      <button class="weui-btn" type="primary" disabled='{{isCanSubmit}}' bindtap="settledInSubmit">确定</button>
+    </view>
+  </view>
+  <view class="weui-btn-area">
+  </view>
+</view>

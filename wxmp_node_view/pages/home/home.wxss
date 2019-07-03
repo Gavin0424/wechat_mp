@@ -1,0 +1,7 @@
+/* pages/Home/home.wxss */
+.swiper{width: 100%;height: 200px}
+.slide-image{width: 100%;height: 100%}
+.content
+{
+  height: 1rpx;
+}
