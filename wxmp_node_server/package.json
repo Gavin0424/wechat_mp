@@ -4,7 +4,7 @@
   "description": "小程序用户表：users\r 教练专业表：coachMajor",
   "main": "index.js",
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "express": "^4.16.4",
     "log4js": "^4.1.0",
     "multer": "^1.4.1",
